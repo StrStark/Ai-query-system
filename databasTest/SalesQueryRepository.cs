@@ -11,7 +11,6 @@ namespace databasTest
         {
             _context = context;
         }
-
         public IQueryable<SalesOrderDetail> QuerySalesDetails()
         {
             return _context.SalesOrderDetails

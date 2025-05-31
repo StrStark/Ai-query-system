@@ -9,14 +9,11 @@ namespace databasTest
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddScoped<SalesQueryRepository>();
-
             builder.Services.AddScoped<SalesQueryService>();
             builder.Services.AddDbContext<AdventureWorks2022Context>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -28,8 +25,6 @@ namespace databasTest
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
