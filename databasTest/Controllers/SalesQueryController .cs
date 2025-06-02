@@ -23,8 +23,18 @@ namespace databasTest.Controllers
             short? minQty
         )
         {
-            var result = _service.GetFilteredSales(from, to, productId, minRevenue, maxDiscount, minQty);
-            return Ok(result);
+            try
+            {
+                var result = _service.GetFilteredSales(from, to, productId, minRevenue, maxDiscount, minQty);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
         }
     }
 
