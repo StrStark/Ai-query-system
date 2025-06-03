@@ -17,10 +17,14 @@ public class HealthCheckController : ControllerBase
     [HttpGet("db")]
     public async Task<IActionResult> CheckDatabaseConnection()
     {
-        bool canConnect = await _context.Database.CanConnectAsync();
-        if (canConnect)
-            return Ok(new { status = "Healthy", db = "Connected" });
-        else
-            return StatusCode(500, new { status = "Unhealthy", db = "Cannot connect" });
+        try
+        {
+            bool canConnect = await _context.Database.CanConnectAsync();
+            return Ok(new { status = canConnect ? "Healthy" : "Unhealthy", db = canConnect ? "Connected" : "Cannot connect" });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { status = "Exception", error = ex.Message });
+        }
     }
 }
