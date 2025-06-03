@@ -1,5 +1,6 @@
 ﻿using databasTest.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace databasTest.Controllers;
@@ -20,17 +21,11 @@ public class HealthCheckController : ControllerBase
     {
         try
         {
-            // Try opening a raw ADO.NET connection to get detailed errors
-            using (var connection = _context.Database.GetDbConnection())
+            using (var connection = new SqlConnection("Server=91.107.162.209,1433;Database=AdventureWorks2022;User Id=sa;Password=Mr5568###;TrustServerCertificate=true;Encrypt=false;"))
             {
-                await connection.OpenAsync(); // This will throw if something is wrong
+                await connection.OpenAsync();
             }
-
-            return Ok(new
-            {
-                status = "Healthy",
-                db = "Connected"
-            });
+            return Ok(new { status = "Healthy", db = "Connected" });
         }
         catch (Exception ex)
         {
