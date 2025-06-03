@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace databasTest.Models;
+namespace databasTest;
 
 /// <summary>
 /// Cross-reference table mapping stores, vendors, and employees to people

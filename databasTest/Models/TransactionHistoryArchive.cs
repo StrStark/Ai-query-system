@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace databasTest.Models;
+namespace databasTest;
 
 /// <summary>
 /// Transactions for previous years.

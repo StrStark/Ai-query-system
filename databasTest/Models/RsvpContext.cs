@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace databasTest.Models;
+namespace databasTest;
 
-public partial class AdventureWorks2022Context : DbContext
+public partial class RsvpContext : DbContext
 {
-    public AdventureWorks2022Context()
+    public RsvpContext()
     {
     }
 
-    public AdventureWorks2022Context(DbContextOptions<AdventureWorks2022Context> options)
+    public RsvpContext(DbContextOptions<RsvpContext> options)
         : base(options)
     {
     }
@@ -195,7 +195,7 @@ public partial class AdventureWorks2022Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.;Database=AdventureWorks2022;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=91.107.162.209,1433;Database=AdventureWorks2022;User Id=sa;Password=Mr5568###;TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

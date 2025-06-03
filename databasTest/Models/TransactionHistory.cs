@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace databasTest.Models;
+namespace databasTest;
 
 /// <summary>
 /// Record of each purchase order, sales order, or work order transaction year to date.

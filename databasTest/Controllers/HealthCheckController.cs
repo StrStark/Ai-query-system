@@ -1,5 +1,4 @@
-﻿using databasTest.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 namespace databasTest.Controllers;
@@ -8,8 +7,8 @@ namespace databasTest.Controllers;
 [Route("api/[controller]")]
 public class HealthCheckController : ControllerBase
 {
-    private readonly AdventureWorks2022Context _context;
-    public HealthCheckController(AdventureWorks2022Context context)
+    private readonly RsvpContext _context;
+    public HealthCheckController(RsvpContext context)
     {
         _context = context;
     }

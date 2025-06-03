@@ -1,12 +1,11 @@
-﻿using databasTest.Models;
-
+﻿
 namespace databasTest;
 
 public class DatabaseHealthService
 {
-    private readonly AdventureWorks2022Context _context;
+    private readonly RsvpContext _context;
 
-    public DatabaseHealthService(AdventureWorks2022Context context)
+    public DatabaseHealthService(RsvpContext context)
     {
         _context = context;
     }

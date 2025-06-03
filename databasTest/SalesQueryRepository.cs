@@ -1,13 +1,12 @@
-﻿using databasTest.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace databasTest
 {
     public class SalesQueryRepository
     {
-        private readonly AdventureWorks2022Context _context;
+        private readonly RsvpContext _context;
 
-        public SalesQueryRepository(AdventureWorks2022Context context)
+        public SalesQueryRepository(RsvpContext context)
         {
             _context = context;
         }

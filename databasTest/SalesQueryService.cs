@@ -1,5 +1,4 @@
 ﻿using databasTest;
-using databasTest.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class SalesQueryService

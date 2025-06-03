@@ -1,5 +1,4 @@
 
-using databasTest.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 namespace databasTest
@@ -23,7 +22,7 @@ namespace databasTest
                 IntegratedSecurity = false
             };
 
-            builder.Services.AddDbContext<AdventureWorks2022Context>(options =>
+            builder.Services.AddDbContext<RsvpContext>(options =>
                 options.UseSqlServer(sqlBuilder.ConnectionString));
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
