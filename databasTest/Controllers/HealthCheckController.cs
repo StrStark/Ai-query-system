@@ -21,9 +21,9 @@ public class HealthCheckController : ControllerBase
     {
         try
         {
-            using (var connection = new SqlConnection("Server=91.107.162.209,1433;Database=AdventureWorks2022;User Id=sa;Password=Mr5568###;TrustServerCertificate=true;Encrypt=false;"))
+            using (var conn = _context.Database.GetDbConnection())
             {
-                await connection.OpenAsync();
+                await conn.OpenAsync();
             }
             return Ok(new { status = "Healthy", db = "Connected" });
         }
@@ -32,7 +32,7 @@ public class HealthCheckController : ControllerBase
             return StatusCode(500, new
             {
                 status = "Unhealthy",
-                db = "Cannot connect",
+                db = "EF failed",
                 error = ex.GetType().Name,
                 message = ex.Message,
                 inner = ex.InnerException?.Message

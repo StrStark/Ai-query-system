@@ -11,8 +11,8 @@ namespace databasTest
 
             builder.Services.AddScoped<SalesQueryRepository>();
             builder.Services.AddScoped<SalesQueryService>();
-            builder.Services.AddDbContext<AdventureWorks2022Context>(options =>
-                options.UseSqlServer("Server=91.107.162.209,1433;Database=AdventureWorks2022;User Id=sa;Password=Mr5568###;TrustServerCertificate=true;Encrypt=false;"));
+            var connectionString = builder.Configuration.GetConnectionString("Default");
+            Console.WriteLine("EF Core connection string: " + connectionString);
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
