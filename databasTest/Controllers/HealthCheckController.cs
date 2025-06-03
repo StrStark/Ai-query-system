@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-
 namespace databasTest.Controllers;
 
 [ApiController]
@@ -10,12 +9,10 @@ namespace databasTest.Controllers;
 public class HealthCheckController : ControllerBase
 {
     private readonly AdventureWorks2022Context _context;
-
     public HealthCheckController(AdventureWorks2022Context context)
     {
         _context = context;
     }
-
     [HttpGet("db")]
     public async Task<IActionResult> CheckDatabaseConnection()
     {
@@ -39,5 +36,4 @@ public class HealthCheckController : ControllerBase
             });
         }
     }
-
 }
