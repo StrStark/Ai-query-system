@@ -12,7 +12,7 @@ namespace databasTest
             builder.Services.AddScoped<SalesQueryRepository>();
             builder.Services.AddScoped<SalesQueryService>();
             builder.Services.AddDbContext<AdventureWorks2022Context>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
